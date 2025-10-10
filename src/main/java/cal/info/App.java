@@ -28,7 +28,8 @@ public class App
                 os.close();
             }
         });
-        serveur.createContext("/hackathons", new ControleurHackathon());
+        serveur.createContext("/inventaire", new ControleurInventaire());
+        serveur.createContext("/ventes", new ControleurVente());
 
         // Démarrer le serveur
         serveur.setExecutor(null); // Créer un exécuteur par défaut
