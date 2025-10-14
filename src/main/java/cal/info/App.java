@@ -16,7 +16,6 @@ public class App
     public static void main(String[] args) throws IOException {
         // Création du serveur HTTP qui écoutera sur le port 8000
         HttpServer serveur = HttpServer.create(new InetSocketAddress(8000), 0);
-        BaseDeDonneesUtil baseDeDonneesUtil = new BaseDeDonneesUtil();
         // Première route "/accueil" :
         serveur.createContext("/accueil", new HttpHandler(){
             @Override
@@ -28,8 +27,10 @@ public class App
                 os.close();
             }
         });
-        serveur.createContext("/inventaire", new ControleurInventaire());
-        serveur.createContext("/ventes", new ControleurVente());
+        ControleurInventaire controleurInventaire = new ControleurInventaire();
+        ControleurVente controleurVente = new ControleurVente();
+        serveur.createContext("/inventaire", controleurInventaire);
+        serveur.createContext("/ventes", controleurVente);
 
         // Démarrer le serveur
         serveur.setExecutor(null); // Créer un exécuteur par défaut
