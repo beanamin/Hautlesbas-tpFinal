@@ -6,6 +6,7 @@ Ceci est une application pour gèrer les ventes de chausettes, il utilise Maven 
 - POST
 - PUT 
 - DELETE
+
 Quand le App.java est lancé, l'application crée deux chausettes et une vente automatiquement. 
 Ils peuvent être enlever en utilisant la commande DELETE, si l'utilisateur ne les veulent pas.
 
