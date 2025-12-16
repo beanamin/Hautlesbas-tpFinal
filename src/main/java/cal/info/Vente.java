@@ -1,14 +1,26 @@
 package cal.info;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.time.Instant;
 import java.util.Date;
 import java.util.List;
 
 public class Vente {
-    private int identifiant;
+
+
+    private int id;
     private Date dateVente;
     private double total;
     private List<Chausette> chausettes;
-
+    public Vente(List<Chausette> chausettes){
+        this.chausettes = chausettes;
+        this.total = calculerTotal();
+        this.dateVente = Date.from(Instant.now());
+    }
+    public Vente(){
+        this.dateVente = Date.from(Instant.now());
+    }
     public void ajouterChausette (Chausette c){
         chausettes.add(c);
     }
@@ -21,16 +33,16 @@ public class Vente {
         return totalCalcul;
     }
 
-    public int getIdentifiant() {
-        return identifiant;
+    public int getId() {
+        return id;
     }
 
     public Date getDateVente() {
         return dateVente;
     }
 
-    public void setIdentifiant(int identifiant) {
-        this.identifiant = identifiant;
+    public void setId(int identifiant) {
+        this.id = identifiant;
     }
 
     public double getTotal() {
@@ -53,4 +65,16 @@ public class Vente {
         this.total = total;
     }
 
+//        "id": 1,
+//        "dateVente": 1765774800000,
+//        "total": 19.0,
+//        "chausettes": [
+//    {
+//        "id": 1,
+//            "couleur": "Mauve",
+//            "taille": "M4",
+//            "typeTissu": "Polyestre",
+//            "prix": 19.0
+//    }
+//    ]
 }

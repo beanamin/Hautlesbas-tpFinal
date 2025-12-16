@@ -1,14 +1,14 @@
 package cal.info;
 
 public class Chausette {
-    private int identifiant;
+    private int id;
     private String couleur;
     private String taille;
     private String typeTissu;
     private double prix;
 
-    public Chausette(int identifiant, String couleur, String taille, String typeTissu, double prix){
-        this.identifiant = identifiant;
+    public Chausette(int id, String couleur, String taille, String typeTissu, double prix){
+        this.id = id;
         this.couleur = couleur;
         this.taille = taille;
         this.typeTissu = typeTissu;
@@ -20,8 +20,8 @@ public class Chausette {
         return prix;
     }
 
-    public int getIdentifiant() {
-        return identifiant;
+    public int getId() {
+        return id;
     }
 
     public String getCouleur() {
@@ -52,7 +52,22 @@ public class Chausette {
         this.typeTissu = typeTissu;
     }
 
-    public void setIdentifiant(int identifiant) {
-        this.identifiant = identifiant;
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    @Override
+    public boolean equals(Object obj){
+        // si l'objet est comparé à lui-même
+        if (this == obj) return true;
+
+        // si l'objet comparé est null ou de type différent
+        if (obj == null || getClass() != obj.getClass()) return false;
+
+        // Alors, on peut convertir l'objet en Etudiant
+        Chausette chausette = (Chausette) obj;
+
+        // retourner vrai si le matricule et le nom de l'etudiant sont les mêmes
+        return id == chausette.getId() && couleur.equals(chausette.getCouleur()) && prix == chausette.getPrix() && taille.equals(chausette.getTaille()) && typeTissu.equals(chausette.getTypeTissu());
     }
 }

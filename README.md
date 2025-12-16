@@ -2,12 +2,13 @@
 # L'application Haut Les Bas
 
 Ceci est une application pour gèrer les ventes de chausettes, il utilise Maven pour supporter certaines commandes: 
-- GET 
+- GET
 - POST
-- PUT 
+- PUT
 - DELETE
 
-Quand le App.java est lancé, l'application crée deux chausettes et une vente automatiquement. 
+Quand le App.java est lancé, l'application détruis les tables existantes et crée deux chausettes et une vente automatiquement. Si vous voulez persister des donnés entre lancements, mettez la ligne marqué dans App.java en commentaire
+
 Ils peuvent être enlever en utilisant la commande DELETE, si l'utilisateur ne les veulent pas.
 
 ### Modifier l'inventaire des chausettes:
@@ -15,8 +16,7 @@ Lien https: ```` http://localhost:8000/inventaire````
 Guide pour les commandes:
 - GET: 
   - Sans arguments, liste tous les chausettes dans l'inventaire de l'application, ex: ```GET http://localhost:8000/inventaire```
-  - Avec le paramètre id, permet de rechercher une paire de chausettes avec leur identifiant, ex: ```GET http://localhost:8000/inventaire?id=1```
-  - Avec les paramètres taille et couleur, permet de chercher une paire de chausettes par leur taille et leur couleur, ex: ```GET http://localhost:8000/inventaire?taille=M4&couleur=rouge```
+  - Avec les paramètres taille, couleur ou les deux en même temps, permet de chercher une paire de chausettes par leur taille et leur couleur, ex: ```GET http://localhost:8000/inventaire?taille=M4&couleur=rouge```
 - POST:
   - Permet de ajouter une nouvelle paire de chausettes avec les paramêtres couleur, taille, typeTissu et prix, ex: ```POST http://localhost:8000/inventaire```
 avec le corps de requête:
@@ -68,3 +68,9 @@ une vente créée comme ceci va enlever tout les chausettes dedans de l'inventai
 - DELETE:
     - Permet d'annuler une vente en donnant son identifiant comme paramêtre id, ex: ```DELETE http://localhost:8000/ventes?id=1```
     une vente enlevé de cette facon retournera tout les chausette dedans à l'inventaire.
+
+#### Diagramme de séquences pour l'ajout d'une paire de chausettes
+![diagramme de sequences pour ajout de chausettes](./diagSequencesChausette.png)
+
+#### Diagramme de séquences pour l'ajout d'une vente
+![diagramme de sequences pour ajout d'une vente](./diagSequencesVente.png)
