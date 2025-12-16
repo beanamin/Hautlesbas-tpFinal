@@ -1,4 +1,4 @@
- 
+Remis à 11:58, le commit a fail donc c'est 4 mins en retard
 # L'application Haut Les Bas
 
 Ceci est une application pour gèrer les ventes de chausettes, il utilise Maven pour supporter certaines commandes: 
